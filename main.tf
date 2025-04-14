@@ -3,6 +3,11 @@ provider "aws" {
   region = "ap-northeast-1"
 }
 
+module "Budgets" {
+  source              = "./modules/Budgets"
+  notification_emails = var.notification_emails
+}
+
 # TerraformのstateファイルをS3に保存
 terraform {
   backend "s3" {
